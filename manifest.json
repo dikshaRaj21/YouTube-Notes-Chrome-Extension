@@ -1,0 +1,32 @@
+{
+    "manifest_version": 3,
+    "name": "Netflix & YouTube Notes",
+    "version": "1.0",
+    "description": "Take timestamped notes while watching videos.",
+    "permissions": ["storage", "scripting", "activeTab"],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/clapperBoard.png",
+        "48": "icons/Notepad_icon.png",
+        "128": "icons/Notepad_icon.png"
+      }
+    },
+    "host_permissions": [
+      "https://www.youtube.com/*",
+      "https://www.netflix.com/*"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "https://www.youtube.com/*",
+          "https://www.netflix.com/*"
+        ],
+       "js": ["content.js"]
+      }
+    ]
+  }
+  
